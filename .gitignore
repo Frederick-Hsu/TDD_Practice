@@ -1,0 +1,14 @@
+# The following file extensions or directories will be ignored by git tracking:
+
+.vs/
+
+*.log
+*.txt
+*.tlog
+*.idb
+*.pdb
+*.user
+*.filters
+*.ilk
+*.exe
+*.obj
