@@ -1,5 +1,10 @@
 #include "gtest/gtest.h"
 
+extern "C"
+{
+    #include "testy/customer.h"
+}
+
 TEST(customer, ok)
 {
     ASSERT_EQ(customer_check(5), 1);
