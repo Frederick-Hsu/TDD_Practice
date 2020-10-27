@@ -12,6 +12,8 @@
 *.ilk
 *.exe
 *.obj
+*.o
+*.swp
 
 build*/
 *.recipe
