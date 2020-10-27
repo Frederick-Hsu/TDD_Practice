@@ -3,7 +3,7 @@
 
 using namespace testing;
 
-class SoundexEncoding : public testing::Test
+class SoundexEncoding : public ::testing::Test
 {
 public:
     Soundex soundex;
