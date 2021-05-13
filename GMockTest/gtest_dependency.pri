@@ -1,7 +1,8 @@
+
 isEmpty(GOOGLETEST_DIR):GOOGLETEST_DIR=$$(GOOGLETEST_DIR)
 
 isEmpty(GOOGLETEST_DIR) {
-    GOOGLETEST_DIR = C:/googletest
+    GOOGLETEST_DIR = /usr/src/googletest
     !isEmpty(GOOGLETEST_DIR) {
         warning("Using googletest src dir specified at Qt Creator wizard")
         message("set GOOGLETEST_DIR as environment variable or qmake variable to get rid of this message")
@@ -39,3 +40,4 @@ DEFINES += \
     SOURCES += \
         $$GMOCK_SRCDIR/src/gmock-all.cc
 }
+
