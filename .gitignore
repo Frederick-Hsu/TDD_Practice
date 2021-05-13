@@ -14,6 +14,7 @@
 *.obj
 *.o
 *.swp
+*.pdf
 
 build*/
 *.recipe
