@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Program Files\googletest\googletest\include;C:\Program Files\googletest\googlemock\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files\googletest\build\lib\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\googletest\googlemock\include;C:\googletest\googletest\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\googletest\build\lib\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -124,7 +124,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>C:\Program Files\googletest\build\lib\Debug\gmockd.lib;C:\Program Files\googletest\build\lib\Debug\gtestd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\googletest\build\lib\Debug\gmockd.lib;C:\googletest\build\lib\Debug\gtestd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -149,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Soundex.h" />
+    <ClInclude Include="tst_gmocktestcase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
