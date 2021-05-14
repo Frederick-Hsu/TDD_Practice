@@ -5,7 +5,9 @@ CONFIG -= qt
 
 SOURCES += \
         RetweetCollection.cpp \
+        Tweet.cpp \
         main.cpp
 
 HEADERS += \
-    RetweetCollection.hpp
+    RetweetCollection.hpp \
+    Tweet.h

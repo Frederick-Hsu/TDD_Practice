@@ -6,8 +6,12 @@ CONFIG -= app_bundle
 CONFIG += thread
 CONFIG -= qt
 
-HEADERS +=
+HEADERS += \
+    ../RetweetApp/RetweetCollection.hpp \
+    ../RetweetApp/Tweet.h
 
 SOURCES += \
+        ../RetweetApp/RetweetCollection.cpp \
+        ../RetweetApp/Tweet.cpp \
         RetweetCollectionTest.cpp \
         main.cpp
