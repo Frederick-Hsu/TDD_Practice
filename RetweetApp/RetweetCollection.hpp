@@ -1,6 +1,8 @@
 #ifndef RETWEET_COLLECTION_HPP
 #define RETWEET_COLLECTION_HPP
 
+    #include <vector>
+
     class RetweetCollection;
     class Tweet;
 
@@ -8,10 +10,10 @@
     {
     public:
         RetweetCollection();
-    public:
         bool isEmpty() const;
         unsigned int size() const;
         void add(const Tweet& tweet);
+        void remove(const Tweet& tweet);
     private:
         unsigned int m_size;
     };
