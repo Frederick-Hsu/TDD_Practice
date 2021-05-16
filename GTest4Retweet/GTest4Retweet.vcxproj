@@ -146,8 +146,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\RetweetApp\RetweetCollection.cpp" />
+    <ClCompile Include="..\RetweetApp\Tweet.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RetweetCollectionTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\RetweetApp\RetweetCollection.hpp" />
+    <ClInclude Include="..\RetweetApp\Tweet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
