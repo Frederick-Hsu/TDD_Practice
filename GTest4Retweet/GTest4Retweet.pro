@@ -14,4 +14,5 @@ SOURCES += \
         ../RetweetApp/RetweetCollection.cpp \
         ../RetweetApp/Tweet.cpp \
         RetweetCollectionTest.cpp \
+        Test4RetweetCollection.cpp \
         main.cpp
