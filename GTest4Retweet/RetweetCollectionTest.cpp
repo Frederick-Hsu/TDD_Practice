@@ -52,3 +52,32 @@ TEST_F(ARetweetCollection, IsEmptyWhenItsSizeIsZero)
     ASSERT_THAT(collection.size(), Eq(0u));
     ASSERT_TRUE(collection.isEmpty());
 }
+
+TEST_F(ARetweetCollection, IsNotEmptyWhenItsSizeIsNotZero)
+{
+    collection.add(Tweet());
+    ASSERT_THAT(collection.size(), Gt(0u));
+    ASSERT_FALSE(collection.isEmpty());
+}
+
+#if 0
+TEST_F(ARetweetCollection, IgnoresDuplicateTweetAdded)
+{
+    Tweet tweet("msg", "@user");
+    Tweet duplicate(tweet);
+    collection.add(tweet);
+
+    collection.add(duplicate);
+    ASSERT_THAT(collection.size(), Eq(1u));
+}
+#endif
+
+TEST_F(ARetweetCollection, UsesOriginalTweetTextWhenEmptyTweetAdded)
+{
+
+}
+
+TEST_F(ARetweetCollection, ThrowsExceptionWhenUserNotValidForAddedTweet)
+{
+
+}
