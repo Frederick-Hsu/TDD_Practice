@@ -1,0 +1,9 @@
+# The following file extensions and directories will be ignored by the git tracking system:
+
+*.o
+*.exe
+*.obj
+*.user*
+*.stash
+
+build-*/
