@@ -9,7 +9,8 @@
 #include <QtTest>
 #include <QCoreApplication>
 
-// add necessary includes here
+#include "../ContactApp/PanelContact.hpp"
+#include "../ContactApp/UI_PanelContact.hpp"
 
 class TestPanelContact : public QObject
 {
@@ -20,5 +21,10 @@ public:
 private slots:
     void initTestCase();
     void cleanupTestCase();
-    void test_case1();
+    void TestConstruction();
+    void TestLineEditKeyIn();
+    void TestCancelButtonBehaviour();
+    void TestConcateButtonBehaviour();
+private:
+    PanelContact panel;
 };
