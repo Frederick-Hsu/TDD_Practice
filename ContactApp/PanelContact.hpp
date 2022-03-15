@@ -6,9 +6,6 @@
 #pragma once
 
 #include <QWidget>
-#if defined (UTESTING)
-    #include "../TestPanelContact/tst_testpanelcontact.hpp"
-#endif
 
 class UI_PanelContact;
 
