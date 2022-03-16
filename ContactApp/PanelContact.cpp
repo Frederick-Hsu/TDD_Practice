@@ -11,8 +11,8 @@ PanelContact::PanelContact(QWidget *parent) : QWidget(parent), ui(new UI_PanelCo
 {
     ui->setupUi(this);
 
-    QObject::connect(ui->concatButton, &QPushButton::clicked, this, &PanelContact::on_concatButton_Clicked);
-    QObject::connect(ui->cancelButton, &QPushButton::clicked, this, &PanelContact::on_cancelButton_Clicked);
+    QObject::connect(ui->concatButton, &QPushButton::clicked, this, &PanelContact::onConcatButtonClicked);
+    QObject::connect(ui->cancelButton, &QPushButton::clicked, this, &PanelContact::onCancelButtonClicked);
 }
 
 PanelContact::~PanelContact()
@@ -20,7 +20,7 @@ PanelContact::~PanelContact()
     delete ui;
 }
 
-void PanelContact::on_concatButton_Clicked()
+void PanelContact::onConcatButtonClicked()
 {
     QString category = ui->categoryLineEdit->text();
     QString website = ui->websiteLineEdit->text();
@@ -28,7 +28,7 @@ void PanelContact::on_concatButton_Clicked()
     ui->displayLabel->setText(category + website);
 }
 
-void PanelContact::on_cancelButton_Clicked()
+void PanelContact::onCancelButtonClicked()
 {
     ui->displayLabel->setText("");
     ui->categoryLineEdit->setText("");

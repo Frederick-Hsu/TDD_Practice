@@ -21,7 +21,7 @@ public:
 private:
     UI_PanelContact *ui;
 private slots:
-    void on_concatButton_Clicked();
-    void on_cancelButton_Clicked();
+    void onConcatButtonClicked();
+    void onCancelButtonClicked();
 };
 
