@@ -61,6 +61,40 @@ void TestPanelContact::TestCancelButtonBehaviour()
     QVERIFY(panel.ui->websiteLineEdit->text().isEmpty() == true);
     QVERIFY(panel.ui->displayLabel->text().isEmpty() == true);
 }
+
+void TestPanelContact::TestFocus()
+{
+    /* clean up all the text message firstly */
+    QTest::mouseClick(panel.ui->cancelButton, Qt::LeftButton);
+
+    /* enables focus and widget events */
+    QApplication::setActiveWindow(&panel);
+    /* set initial focus */
+    panel.ui->categoryLineEdit->setFocus();
+    QVERIFY2(panel.ui->categoryLineEdit->hasFocus(), "category QLineEdit widget doesn't have focus");
+
+    /* Write the focused widget: categoryLineEdit */
+    QTest::keyClicks(QApplication::focusWidget(), "medbot.");
+    /* move focus to next widget */
+    QTest::keyClick(&panel, Qt::Key_Tab);
+    QVERIFY2(panel.ui->websiteLineEdit->hasFocus(), "website QLineEdit widget doesn't have focus");
+    /* write the focused widget: websiteLineEdit */
+    QTest::keyClicks(QApplication::focusWidget(), "microport.com");
+
+    QTest::keyClick(&panel, Qt::Key_Tab);   /* move focus to next widget */
+    QVERIFY2(panel.ui->concatButton->hasFocus(), "concate button has not yet owned the focus.");
+    /* press concateButton by using space key */
+    QTest::keyClick(QApplication::focusWidget(), Qt::Key_Space);
+    QCOMPARE(panel.ui->displayLabel->text(), QString("medbot.microport.com"));
+
+    QTest::keyClick(&panel, Qt::Key_Tab);
+    QVERIFY2(panel.ui->cancelButton->hasFocus(), "cancelButton has not yet owned the focus");
+    QTest::keyClick(QApplication::focusWidget(), Qt::Key_Space);
+    QVERIFY2(panel.ui->categoryLineEdit->text().isEmpty(), "Cancel button didn't work on categoryLineEdit widget.");
+    QVERIFY2(panel.ui->websiteLineEdit->text().isEmpty(), "Cancel button didn't work on websiteLineEdit widget.");
+    QVERIFY2(panel.ui->displayLabel->text().isEmpty(), "Cancel button didn't work on displayLabel widget.");
+}
+
 void TestPanelContact::TestSignals()
 {
     /* set inputs */

@@ -25,6 +25,7 @@ private slots:
     void TestLineEditKeyIn();
     void TestCancelButtonBehaviour();
     void TestConcateButtonBehaviour();
+    void TestFocus();
     void TestSignals();
 private:
     PanelContact panel;
