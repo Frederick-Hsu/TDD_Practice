@@ -110,7 +110,7 @@ void TestPanelContact::TestSignals()
     QCOMPARE(spyToConcateButton.count(), 1);
     QCOMPARE(spyToCancelButton.count(), 0);
 
-    QList args = spyToConcateButton.takeFirst();
+    auto args = spyToConcateButton.takeFirst();
     QCOMPARE(args.at(0).toString(), panel.ui->categoryLineEdit->text() + panel.ui->websiteLineEdit->text());
 
     /* Click the cancelButton */
