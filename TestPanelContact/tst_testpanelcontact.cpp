@@ -120,3 +120,38 @@ void TestPanelContact::TestSignals()
     args = spyToCancelButton.takeFirst();
     QVERIFY2(args.empty(), "DataCleared signal has parameters now?");
 }
+
+void TestPanelContact::TestConcatenate()
+{
+    /* Retrieve the data or a row using the macro */
+    QFETCH(QTestEventList, category);
+    QFETCH(QTestEventList, website);
+    QFETCH(QString, display_value);
+
+    /* Simulate the events from event list one-by-one on the destination widget */
+    QTest::mouseClick(panel.ui->cancelButton, Qt::LeftButton);
+    category.simulate(panel.ui->categoryLineEdit);
+    website.simulate(panel.ui->websiteLineEdit);
+    /* Click the button Concatenate */
+    QTest::mouseClick(panel.ui->concatButton, Qt::LeftButton);
+    /* Compare the actual result with expected one */
+    QCOMPARE(panel.ui->displayLabel->text(), display_value);
+}
+
+void TestPanelContact::TestConcatenate_data()
+{
+    QTest::addColumn<QTestEventList>("category");;
+    QTest::addColumn<QTestEventList>("website");
+    QTest::addColumn<QString>("display_value");
+
+    QTestEventList enterCategoryList;
+    QTestEventList enterWebsiteList;
+    enterCategoryList.addKeyClicks("mbc.");
+    enterCategoryList.addKeyClicks("microport.com");
+    QTest::newRow("Normal A + B") << enterCategoryList << enterWebsiteList << QString("mbc.microport.com");
+
+    /* Empty category + Normal website */
+    enterCategoryList.addKeyClicks("");
+    enterWebsiteList.addKeyClicks("medbot.microport.com");
+    QTest::newRow("Empty category + Normal website") << enterCategoryList << enterWebsiteList << QString("medbot.microport.com");
+}

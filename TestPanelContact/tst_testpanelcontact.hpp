@@ -27,6 +27,9 @@ private slots:
     void TestConcateButtonBehaviour();
     void TestFocus();
     void TestSignals();
+private slots:
+    void TestConcatenate();
+    void TestConcatenate_data();
 private:
     PanelContact panel;
 };
