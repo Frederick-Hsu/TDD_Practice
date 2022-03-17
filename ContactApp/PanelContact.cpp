@@ -26,6 +26,8 @@ void PanelContact::onConcatButtonClicked()
     QString website = ui->websiteLineEdit->text();
 
     ui->displayLabel->setText(category + website);
+
+    emit DataAvailable(ui->displayLabel->text());
 }
 
 void PanelContact::onCancelButtonClicked()
@@ -33,4 +35,6 @@ void PanelContact::onCancelButtonClicked()
     ui->displayLabel->setText("");
     ui->categoryLineEdit->setText("");
     ui->websiteLineEdit->setText("");
+
+    emit DataCleared();
 }

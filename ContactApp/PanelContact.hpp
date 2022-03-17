@@ -23,5 +23,8 @@ private:
 private slots:
     void onConcatButtonClicked();
     void onCancelButtonClicked();
+signals:
+    void DataAvailable(QString);
+    void DataCleared();
 };
 

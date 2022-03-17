@@ -61,3 +61,28 @@ void TestPanelContact::TestCancelButtonBehaviour()
     QVERIFY(panel.ui->websiteLineEdit->text().isEmpty() == true);
     QVERIFY(panel.ui->displayLabel->text().isEmpty() == true);
 }
+void TestPanelContact::TestSignals()
+{
+    /* set inputs */
+    panel.ui->categoryLineEdit->setText(QString("medbot."));
+    panel.ui->websiteLineEdit->setText(QString("microport.com"));
+
+    /* create QSignalSpy objects */
+    QSignalSpy spyToConcateButton(&panel, &PanelContact::DataAvailable);
+    QSignalSpy spyToCancelButton(&panel, &PanelContact::DataCleared);
+
+    /* Click the concatButton */
+    QTest::mouseClick(panel.ui->concatButton, Qt::LeftButton);
+    QCOMPARE(spyToConcateButton.count(), 1);
+    QCOMPARE(spyToCancelButton.count(), 0);
+
+    QList args = spyToConcateButton.takeFirst();
+    QCOMPARE(args.at(0).toString(), panel.ui->categoryLineEdit->text() + panel.ui->websiteLineEdit->text());
+
+    /* Click the cancelButton */
+    QTest::mouseClick(panel.ui->cancelButton, Qt::LeftButton);
+    QCOMPARE(spyToConcateButton.count(), 0);
+    QCOMPARE(spyToCancelButton.count(), 1);
+    args = spyToCancelButton.takeFirst();
+    QVERIFY2(args.empty(), "DataCleared signal has parameters now?");
+}
